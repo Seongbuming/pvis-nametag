@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+
+    <link rel="style" href="minireset.min.css" />
+    <link rel="style" href="style.css" />
+
+    <script src="libraries/html2canvas.min.js"></script>
+    <script src="libraries/jszip.min.js"></script>
+    <script src="libraries/FileSaver.min.js"></script>
+
+    <title>PacificVis Nametag Converter</title>
+</head>
+<body>
+    <label for="csv-file">CSV File:</label>
+    <input id="csv-file" type="file" />
+
+    <div>
+        <label>Outputs:</label>
+        <button id="download">Download</button>
+    </div>
+
+    <div id="output"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
