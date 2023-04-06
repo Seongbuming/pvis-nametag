@@ -1,0 +1,37 @@
+body {
+    margin: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.nametag {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: calc(87mm * 2);
+    height: calc(57mm * 2);
+    margin: 10px 0;
+    padding: 20mm 0;
+    font-family: seoulnamsanregular;
+    text-align: center;
+    color: color(srgb 0.01 0.0505 0.2457);
+    background-image: url(images/nametag-background.png);
+    background-size: cover;
+    border: 1px solid #555;
+}
+.nametag .name {
+    font-family: seoulhangang_smart_bregular;
+    font-size: 54px;
+}
+.nametag .affiliation {
+    font-weight: bold;
+    font-size: 30px;
+}
+.nametag .city {
+    font-weight: lighter;
+    font-size: 27px;
+}

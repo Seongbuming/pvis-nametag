@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8" />
 
-    <link rel="style" href="minireset.min.css" />
-    <link rel="style" href="style.css" />
+    <link rel="stylesheet" href="minireset.min.css" />
+    <link rel="stylesheet" href="fonts/SeoulFonts.css" />
+    <link rel="stylesheet" href="style.css" />
 
     <script src="libraries/html2canvas.min.js"></script>
     <script src="libraries/jszip.min.js"></script>
@@ -19,6 +20,17 @@
     <div>
         <label>Outputs:</label>
         <button id="download">Download</button>
+    </div>
+
+    <div id="nametag-template" class="nametag hidden">
+        <!-- <div class="title">PACIFIC VIS 2023</div> -->
+
+        <p class="name"></p>
+        <div>
+            <p class="affiliation"></p>
+            <p class="city"></p>
+        </div>
+        <!-- <p class="country"></p> -->
     </div>
 
     <div id="output"></div>

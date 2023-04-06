@@ -8,18 +8,19 @@ function parseCSV(csv) {
 }
 
 // 명함 생성
-function createNameTag(name, affiliation) {
-    const tag = document.createElement('div');
-    tag.classList.add('nametag');
-    tag.innerHTML = `
-        <h2>${name}</h2>
-        <p>${affiliation}</p>
-    `;
+function createNameTag(name, affiliation, city, country) {
+    const tag = document.querySelector('#nametag-template').cloneNode(true);
+    tag.querySelector('.name').innerHTML = name;
+    tag.querySelector('.affiliation').innerHTML = affiliation;
+    tag.querySelector('.city').innerHTML = `${city}, ${country}`;
+    // tag.querySelector('.country').innerHTML = country;
+    tag.removeAttribute('id');
+    tag.classList.remove('hidden');
     return tag;
 }
 
 // 명함 이미지로 변환
-function saveNameTagAsImage(tag, name) {
+function saveNameTagAsImage(tag) {
     return html2canvas(tag).then(canvas => canvas.toDataURL('image/png'));
 }
 
@@ -54,8 +55,8 @@ document.querySelector('#csv-file')
             const promises = [];
 
             data.forEach(row => {
-                const [name, affiliation] = row;
-                const tag = createNameTag(name, affiliation);
+                const [name, city, affiliation] = row;
+                const tag = createNameTag(name, city, affiliation);
                 document.querySelector('#output').appendChild(tag);
             });
         };
@@ -74,3 +75,15 @@ document.querySelector('#download')
             saveZip(images, 'nametags')
         })
     });
+
+const sample=`Name,Affiliation,City,Country\n
+Seongbum Seo,Sejong University,Seoul,Korea\n
+Seongbom Seo,Jongse University,Seoul,Korea\n
+`;
+const data = parseCSV(sample);
+
+data.forEach(row => {
+    const [name, affiliation, city, country] = row;
+    const tag = createNameTag(name, affiliation, city, country);
+    document.querySelector('#output').appendChild(tag);
+});
